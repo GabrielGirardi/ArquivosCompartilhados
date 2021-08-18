@@ -1,0 +1,2 @@
+# ArquivosCompartilhados
+Dual Editor
