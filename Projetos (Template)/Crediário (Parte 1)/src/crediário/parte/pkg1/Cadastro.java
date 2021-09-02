@@ -26,7 +26,7 @@ public class Cadastro extends javax.swing.JFrame {
     public void cadArraylist()
     {
         try{
-            FileInputStream file = new FileInputStream("Dados.dat");
+            FileInputStream file = new FileInputStream("Bemvindo.dat");
             ObjectInputStream inputFile = new ObjectInputStream(file);
             boolean endOfFile = false;
             while(!endOfFile)
@@ -37,14 +37,14 @@ public class Cadastro extends javax.swing.JFrame {
                 }catch(EOFException e){
                  endOfFile = true;
                 }catch(Exception f){
-                JOptionPane.showMessageDialog(null, f.getMessage());
+                JOptionPane.showMessageDialog(null, " Seja Bem vindo a Área de Cadastros");
                 }
             
                 }
             inputFile.close();
         }catch(IOException e)
         {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, "Seja Bem vindo a Área de Cadastros ");
         }
         
     }
@@ -53,13 +53,13 @@ public class Cadastro extends javax.swing.JFrame {
     {
         try
         {
-           FileOutputStream file = new FileOutputStream("Dados.dat");
+           FileOutputStream file = new FileOutputStream("Bemvindo.dat");
             ObjectOutputStream outputFile = new  ObjectOutputStream(file);
             for(int i = 0; i < da.size(); i++){
                 outputFile.writeObject(da.get(i));            
             }
             
-            JOptionPane.showMessageDialog(null, "Salvo de sucesso");
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
             outputFile.close();
             this.dispose();
         }
@@ -84,13 +84,20 @@ public class Cadastro extends javax.swing.JFrame {
         cadCode = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("User:");
+        jLabel1.setText("Usuário:");
 
-        jLabel2.setText("Code:");
+        jLabel2.setText("Senha:");
 
-        jButton1.setText("Save");
+        cadCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadCodeActionPerformed(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(0, 204, 0));
+        jButton1.setText("Registrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -106,16 +113,16 @@ public class Cadastro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(cadCode))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cadName, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addComponent(jButton1)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,6 +155,10 @@ public class Cadastro extends javax.swing.JFrame {
             saveDatas();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cadCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cadCodeActionPerformed
 
     /**
      * @param args the command line arguments
