@@ -7,11 +7,8 @@ package MenuToolAlpha.pkg2;
 
 /**
  *
- * @author gabriel.girardi
+ * @author shop.credi
  */
-public class Arraylist<T> {
-
-    public Arraylist() {
-    }
-
+public class N3 extends N2 {
+     public String nomeDeF = "Xiaomi Inc.";
 }

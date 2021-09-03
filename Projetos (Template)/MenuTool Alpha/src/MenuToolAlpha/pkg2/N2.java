@@ -7,9 +7,9 @@ package MenuToolAlpha.pkg2;
 
 /**
  *
- * @author gabriel.girardi
+ * @author shop.credi
  */
-public interface Function {
-    public abstract void cadDados();
-    public abstract void lerDados();
+public class N2 extends N1 {
+    public int numS = 789100009;
+    public int valor = 1799;
 }

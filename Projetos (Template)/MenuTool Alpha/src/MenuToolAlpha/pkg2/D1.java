@@ -8,7 +8,7 @@ package MenuToolAlpha.pkg2;
 import java.util.*;
 /**
  *
- * @author gabriel.girardi
+ * @author shop.credi
  */
 public class D1 implements Function{
         
@@ -77,9 +77,9 @@ public class D1 implements Function{
       this.A1 = A1;
        this.A2 = A2;
         this.A3 = A3;
-         this.A4 = A3;
-          this.A5 = A3;
-           this.A6 = A3;
+         this.A4 = A4;
+          this.A5 = A5;
+           this.A6 = A6;
     }
 
     @Override

@@ -5,6 +5,7 @@
  */
 package MenuToolAlpha.pkg2; 
 
+import java.awt.Color;
 import java.io.*;
 
 import java.util.*;
@@ -16,7 +17,7 @@ import javax.swing.*;
  * @author gabriel.girardi
  */
 public class IHM extends javax.swing.JFrame implements Function{
-    
+   
     ArrayList<D1> da;
     /**
      * Creates new form IHM
@@ -24,7 +25,7 @@ public class IHM extends javax.swing.JFrame implements Function{
     public IHM() {
         initComponents();
         da = new ArrayList<D1>();
-       
+        getContentPane().setBackground(Color.cyan);
     }
 
     /**
@@ -57,7 +58,8 @@ public class IHM extends javax.swing.JFrame implements Function{
         jLabel8 = new javax.swing.JLabel();
         A6 = new java.awt.TextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastrar Cliente");
 
         A1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

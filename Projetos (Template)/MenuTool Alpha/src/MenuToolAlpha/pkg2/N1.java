@@ -7,8 +7,9 @@ package MenuToolAlpha.pkg2;
 
 /**
  *
- * @author 1014899
+ * @author shop.credi
  */
-class da {
-    
+public class N1 {
+    public String prod ="Xiaomi mi 9 128GB";
+    public String marc = "Xiaomi mi";
 }

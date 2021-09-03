@@ -8,7 +8,7 @@ import java.io.*;
 
 /**
  *
- * @author azlin
+ * @author shop credi
  * implements Serializable
  */
 public class Dados implements Serializable{

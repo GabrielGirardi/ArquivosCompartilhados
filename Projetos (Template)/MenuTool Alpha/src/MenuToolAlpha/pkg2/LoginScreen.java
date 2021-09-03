@@ -5,14 +5,15 @@
  */
 package MenuToolAlpha.pkg2;
 
+import java.awt.Color;
 import java.io.*;
 import javax.swing.*;
 import java.util.*;
 
 /**
  *
- * @author gabriel.girardi 
- * @author mauricio.junior
+ * @author shop.credi
+ * 
  */
                          
 public class LoginScreen extends javax.swing.JFrame {
@@ -24,6 +25,7 @@ public class LoginScreen extends javax.swing.JFrame {
         */
     public LoginScreen() {
         initComponents();
+           getContentPane().setBackground(Color.white);
     }
 
     /**
