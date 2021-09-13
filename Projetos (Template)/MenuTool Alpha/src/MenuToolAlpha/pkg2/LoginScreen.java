@@ -149,17 +149,17 @@ public class LoginScreen extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(101, 101, 101))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(145, 145, 145))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(61, 61, 61)
                 .addComponent(jLabel3)
-                .addGap(41, 41, 41)
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,7 +189,7 @@ public class LoginScreen extends javax.swing.JFrame {
         lerDados();
         
         if(jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null, "Acesso negado, por favor, Insira seus dados");
+         JOptionPane.showMessageDialog(null, "Erro, por favor... insira algo nos campos de login!");
         }
         else{
         
@@ -197,10 +197,10 @@ public class LoginScreen extends javax.swing.JFrame {
         int senha = Integer.parseInt(jTextField2.getText());
         Dados a = new Dados(name, senha);
         if(name.equals(da.get(0).getNome()) && senha == da.get(0).getSenha()){
-            JOptionPane.showMessageDialog(null, " Bem Vindo " + name );     
+            JOptionPane.showMessageDialog(null, " Seja Bem Vindo " + name + "!!!" );     
             
                 } else{
-        JOptionPane.showMessageDialog(null, "Acesso negado...");
+        JOptionPane.showMessageDialog(null, "Acesso incorreto... verifique as credenciais e tente novamente!");
         }
         }       
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -223,7 +223,7 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        JOptionPane.showMessageDialog(null, " Por Favor Contate um Administrador ");
+        JOptionPane.showMessageDialog(null, "Acesse a aba _-Registrar administrador-_ para criar um novo acesso! ");
     }//GEN-LAST:event_jMenuItem3ActionPerformed
         
     
@@ -292,7 +292,7 @@ public void lerDados() {
                 } catch (EOFException f) {
                     endOfFile = true;
                 } catch (Exception e) {
-                                JOptionPane.showMessageDialog(null, " Carregando os dados ");
+                                JOptionPane.showMessageDialog(null, " Carregando... ");
                 }
 
             }
