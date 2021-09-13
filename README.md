@@ -15,6 +15,6 @@
   
   **Utilitários**
   
-    Ao utilizar nosso software, você pode encontrar algumas ferramentas em cima de certas abas! isso serve para facilitar ou auxiliar devidas funções como fechar a guia, limpar rapidamente o campo de testo ou até mesmo apagar todos os dados do banco de dados **(Magic)**.
+   Ao utilizar nosso software, você pode encontrar algumas ferramentas em cima de certas abas! isso serve para facilitar ou auxiliar devidas funções como fechar a guia, limpar rapidamente o campo de testo ou até mesmo apagar todos os dados do banco de dados **(Magic)**.
   
   
