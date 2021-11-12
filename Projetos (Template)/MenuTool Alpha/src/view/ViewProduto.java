@@ -3,64 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package view;
 
-import controller.ControllerFornecedor;
-import controller.ControllerProdutos;
+import controller.ControllerProduto;
 import java.util.ArrayList;
-import javax.swing.ButtonGroup;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import model.ModelFornecedor;
-import model.ModelProdutos;
-import util.DataClasses;
-import util.TabelaRenderer;
+import model.ModelProduto;
 
 /**
+ *
  * @author gabriel.girardi
  */
 public class ViewProduto extends javax.swing.JFrame {
 
-    ModelProdutos modelProdutos = new ModelProdutos();
-    ControllerProdutos controllerProdutos = new ControllerProdutos();
-    ControllerFornecedor controllerFornecedor = new ControllerFornecedor();
-    ArrayList<ModelProdutos> listamModelProdutos = new ArrayList<ModelProdutos>();
-    ArrayList<ModelFornecedor> listaFornecedor = new ArrayList<ModelFornecedor>();
-    String tipoCadastro;
-    int linha, ultimanota;
-    DefaultTableModel modelo;
-    boolean lista_minimo = false;
-    
-    
+    ArrayList<ModelProduto> listaModelProdutos = new ArrayList<>();
+    ControllerProduto controllerProduto = new ControllerProduto();
+    ModelProduto modelProduto = new ModelProduto();
+    String salvarAlterar;
+
     /**
-     * Creates new form ViewProduto
+     * Creates new form ViewCliente
      */
     public ViewProduto() {
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
+        preencheTabelaProduto();
         setLocationRelativeTo(null);
-        
-        TableCellRenderer renderer = new TabelaRenderer();
-        tbProdutos.setDefaultRenderer(Object.class, renderer);
-                
-        modelo = (DefaultTableModel) tbProdutos.getModel();
-        
-        this.carregarProdutos();
-        this.listarFornecedor();
-        this.desabilitarCampos();
-        ButtonGroup group = new ButtonGroup();
-        group.add(radio_codigo);
-        group.add(radio_nome);
-        
-/**     UIManager.put("TabbedPane.selected", new Color(230, 216, 174));
-        jTabbedPane1.updateUI();
-  */      
+        habilitarDesabilitarCampos(false);
+
     }
 
     /**
@@ -72,102 +45,133 @@ public class ViewProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        btPesquisaProduto = new javax.swing.JButton();
-        tfPesquisaProduto = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tbProdutos = new javax.swing.JTable();
-        btNovo = new javax.swing.JButton();
-        btAlterar = new javax.swing.JButton();
-        btExcluir = new javax.swing.JButton();
-        btCancelar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        cbFornecedores = new componentes.UJComboBox();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        tfCodigo = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jtfNome = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        tfEstoque = new javax.swing.JFormattedTextField();
-        jLayeredPane3 = new javax.swing.JLayeredPane();
-        lbl_lucroreal = new javax.swing.JLabel();
-        lbl_lucro = new javax.swing.JLabel();
-        txt_porcentagem = new javax.swing.JFormattedTextField();
-        lbl_lucro1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        vl_custo = new util.CampoDinheiro();
-        tfValor = new util.CampoDinheiro();
-        jLabel6 = new javax.swing.JLabel();
+        jTextFieldCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        txtminimo = new javax.swing.JFormattedTextField();
-        jLabel8 = new javax.swing.JLabel();
-        radio_codigo = new javax.swing.JRadioButton();
-        radio_nome = new javax.swing.JRadioButton();
-        btnminimo = new javax.swing.JButton();
-        btnentrada = new javax.swing.JButton();
+        jTextFieldNome = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextFieldPesquisar = new javax.swing.JTextField();
+        jButtonPesquisar = new javax.swing.JButton();
+        jTextFieldEstoque = new javax.swing.JFormattedTextField();
+        jTextFieldValor = new javax.swing.JFormattedTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableProduto = new javax.swing.JTable();
+        jButtonNovo = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jButtonAlterar = new javax.swing.JButton();
+        jButtonSalvar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButtonRelProdutos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Produtos");
-        setMinimumSize(new java.awt.Dimension(150, 700));
-        addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentResized(java.awt.event.ComponentEvent evt) {
-                formComponentResized(evt);
-            }
-        });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setTitle("MANUTEÇÃO DE PRODUTOS");
 
-        jTabbedPane1.setBackground(new java.awt.Color(227, 227, 227));
-        jTabbedPane1.setAutoscrolls(true);
-        jTabbedPane1.setMaximumSize(null);
-        jTabbedPane1.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentResized(java.awt.event.ComponentEvent evt) {
-                jTabbedPane1ComponentResized(evt);
-            }
-        });
+        jLabel1.setText("CÓDIGO:");
 
-        jLayeredPane1.setBackground(new java.awt.Color(240, 240, 240));
-        jLayeredPane1.setOpaque(true);
+        jTextFieldCodigo.setEnabled(false);
 
-        btPesquisaProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/18x18/Search.png"))); // NOI18N
-        btPesquisaProduto.setText("Pesquisar");
-        btPesquisaProduto.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setText("NOME:");
+
+        jLabel9.setText("ESTOQUE:");
+
+        jLabel10.setText("VALOR:");
+
+        jLabel3.setText("PESQUISAR:");
+
+        jButtonPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_search_322497.png"))); // NOI18N
+        jButtonPesquisar.setText("PESQUISAR");
+        jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btPesquisaProdutoActionPerformed(evt);
+                jButtonPesquisarActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(btPesquisaProduto);
-        btPesquisaProduto.setBounds(380, 180, 120, 30);
 
-        tfPesquisaProduto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        tfPesquisaProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPesquisaProdutoActionPerformed(evt);
-            }
-        });
-        jLayeredPane1.add(tfPesquisaProduto);
-        tfPesquisaProduto.setBounds(20, 180, 270, 30);
+        jTextFieldEstoque.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
-        jScrollPane2.setInheritsPopupMenu(true);
-        jScrollPane2.setMinimumSize(null);
+        jTextFieldValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
-        tbProdutos.setAutoCreateRowSorter(true);
-        tbProdutos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbProdutos.setModel(new javax.swing.table.DefaultTableModel(
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldEstoque))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(47, 47, 47)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonPesquisar)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextFieldPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPesquisar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTableProduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Código", "Nome", "Valor", "Estoque", "Estoque Minimo"
+                "CÓDIGO", "NOME DO PRODUTO", "QUANTIDADE", "VALOR R$"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -178,504 +182,228 @@ public class ViewProduto extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbProdutos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tbProdutos.setIntercellSpacing(new java.awt.Dimension(4, 4));
-        tbProdutos.setMaximumSize(new java.awt.Dimension(2147483647, 0));
-        tbProdutos.setMinimumSize(new java.awt.Dimension(360, 0));
-        tbProdutos.setRowHeight(30);
-        tbProdutos.setShowHorizontalLines(false);
-        tbProdutos.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(tbProdutos);
+        jScrollPane1.setViewportView(jTableProduto);
+        if (jTableProduto.getColumnModel().getColumnCount() > 0) {
+            jTableProduto.getColumnModel().getColumn(1).setMinWidth(300);
+            jTableProduto.getColumnModel().getColumn(1).setPreferredWidth(300);
+        }
 
-        jLayeredPane1.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 220, 860, 360);
-
-        btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/18x18/Add.png"))); // NOI18N
-        btNovo.setText("Novo");
-        btNovo.addActionListener(new java.awt.event.ActionListener() {
+        jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_plus-24_103172.png"))); // NOI18N
+        jButtonNovo.setText("NOVO");
+        jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btNovoActionPerformed(evt);
+                jButtonNovoActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(btNovo);
-        btNovo.setBounds(410, 590, 100, 30);
 
-        btAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/18x18/Modify.png"))); // NOI18N
-        btAlterar.setText("Alterar");
-        btAlterar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_cancel-2_309095.png"))); // NOI18N
+        jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAlterarActionPerformed(evt);
+                jButtonCancelarActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(btAlterar);
-        btAlterar.setBounds(290, 590, 110, 30);
 
-        btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/18x18/Delete.png"))); // NOI18N
-        btExcluir.setText("Excluir");
-        btExcluir.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_new-24_103173.png"))); // NOI18N
+        jButtonAlterar.setText("ALTERAR");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btExcluirActionPerformed(evt);
+                jButtonAlterarActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(btExcluir);
-        btExcluir.setBounds(160, 590, 110, 30);
 
-        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/18x18/No.png"))); // NOI18N
-        btCancelar.setText("Cancelar");
-        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_checkmark-24_103184.png"))); // NOI18N
+        jButtonSalvar.setText("SALVAR");
+        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCancelarActionPerformed(evt);
+                jButtonSalvarActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(btCancelar);
-        btCancelar.setBounds(20, 590, 130, 30);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/18x18/Save.png"))); // NOI18N
-        jButton1.setText("Salvar");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_cross-24_103181.png"))); // NOI18N
+        jButton1.setText("Excluir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(jButton1);
-        jButton1.setBounds(770, 590, 110, 30);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Fornecedor:");
-        jLayeredPane1.add(jLabel3);
-        jLabel3.setBounds(140, 60, 70, 15);
-
-        cbFornecedores.setDoubleBuffered(true);
-        jLayeredPane1.add(cbFornecedores);
-        cbFornecedores.setBounds(140, 80, 310, 27);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("Nome:");
-        jLayeredPane1.add(jLabel1);
-        jLabel1.setBounds(190, 10, 70, 15);
-
-        tfCodigo.setEditable(false);
-        jLayeredPane1.add(tfCodigo);
-        tfCodigo.setBounds(20, 30, 150, 26);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("Código:");
-        jLayeredPane1.add(jLabel5);
-        jLabel5.setBounds(20, 10, 110, 15);
-        jLayeredPane1.add(jtfNome);
-        jtfNome.setBounds(190, 30, 259, 26);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setText("Estoque mínimo:");
-        jLayeredPane1.add(jLabel4);
-        jLabel4.setBounds(20, 110, 110, 15);
-
-        tfEstoque.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#"))));
-        jLayeredPane1.add(tfEstoque);
-        tfEstoque.setBounds(20, 80, 50, 26);
-
-        jLayeredPane3.setBackground(new java.awt.Color(204, 204, 204));
-        jLayeredPane3.setOpaque(true);
-
-        lbl_lucroreal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lbl_lucroreal.setForeground(new java.awt.Color(255, 255, 153));
-        jLayeredPane3.add(lbl_lucroreal);
-        lbl_lucroreal.setBounds(120, 50, 90, 20);
-
-        lbl_lucro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lbl_lucro.setText("%");
-        jLayeredPane3.add(lbl_lucro);
-        lbl_lucro.setBounds(50, 50, 30, 17);
-
-        txt_porcentagem.setEditable(false);
-        txt_porcentagem.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_porcentagemKeyReleased(evt);
-            }
-        });
-        jLayeredPane3.add(txt_porcentagem);
-        txt_porcentagem.setBounds(0, 50, 50, 26);
-
-        lbl_lucro1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbl_lucro1.setText("Porc. de lucro");
-        jLayeredPane3.add(lbl_lucro1);
-        lbl_lucro1.setBounds(0, 30, 100, 17);
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel7.setText("Lucro em moeda");
-        jLayeredPane3.add(jLabel7);
-        jLabel7.setBounds(120, 30, 110, 15);
-        jLayeredPane3.add(vl_custo);
-        vl_custo.setBounds(0, 0, 80, 26);
-
-        tfValor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                tfValorKeyReleased(evt);
-            }
-        });
-        jLayeredPane3.add(tfValor);
-        tfValor.setBounds(120, 0, 80, 26);
-
-        jLayeredPane1.add(jLayeredPane3);
-        jLayeredPane3.setBounds(460, 30, 233, 80);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel6.setText("Valor de custo:");
-        jLabel6.setToolTipText("");
-        jLayeredPane1.add(jLabel6);
-        jLabel6.setBounds(460, 10, 90, 15);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Valor de venda:");
-        jLayeredPane1.add(jLabel2);
-        jLabel2.setBounds(580, 10, 84, 15);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "UN", "CX", "LT", "KG", "GR" }));
-        jLayeredPane1.add(jComboBox1);
-        jComboBox1.setBounds(70, 80, 60, 27);
-
-        txtminimo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#"))));
-        jLayeredPane1.add(txtminimo);
-        txtminimo.setBounds(20, 130, 50, 26);
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel8.setText("Estoque:");
-        jLayeredPane1.add(jLabel8);
-        jLabel8.setBounds(20, 60, 47, 15);
-
-        radio_codigo.setText("Código");
-        jLayeredPane1.add(radio_codigo);
-        radio_codigo.setBounds(300, 170, 70, 23);
-
-        radio_nome.setText("Nome");
-        jLayeredPane1.add(radio_nome);
-        radio_nome.setBounds(300, 190, 60, 23);
-
-        btnminimo.setText("abaixo do mínimo");
-        btnminimo.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRelProdutos.setText("REL. PRODUTOS");
+        jButtonRelProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnminimoActionPerformed(evt);
+                jButtonRelProdutosActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(btnminimo);
-        btnminimo.setBounds(510, 180, 150, 30);
 
-        btnentrada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/18x18/Up.png"))); // NOI18N
-        btnentrada.setText("Entrada no estoque");
-        btnentrada.setActionCommand("entrada");
-        btnentrada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnentradaActionPerformed(evt);
-            }
-        });
-        jLayeredPane1.add(btnentrada);
-        btnentrada.setBounds(520, 590, 200, 30);
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButtonNovo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonRelProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSalvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonAlterar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonSalvar)
+                        .addComponent(jButtonAlterar)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonNovo)
+                        .addComponent(jButtonCancelar))
+                    .addComponent(jButtonRelProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 34, Short.MAX_VALUE))
+        );
 
-        jTabbedPane1.addTab("Cadastro de produto", jLayeredPane1);
-
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 650));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
-     
-        this.vincularTamanhoTab();
-
-    }//GEN-LAST:event_formComponentResized
-
-    private void jTabbedPane1ComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTabbedPane1ComponentResized
-        this.vincularTamanhoTab();
-
-    }//GEN-LAST:event_jTabbedPane1ComponentResized
-
-    private void btnentradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnentradaActionPerformed
-
-        btAlterarActionPerformed(evt);
-
-        if(this.linha > -1){
-            ViewEntradaEstoque estoque = new ViewEntradaEstoque(modelProdutos);
-            estoque.setVisible(true);
+    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        if (salvarAlterar.equals("salvar")) {
+            this.salvarProduto();
+        } else if (salvarAlterar.equals("alterar")) {
+            this.alteraProduto();
         }
-    }//GEN-LAST:event_btnentradaActionPerformed
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
 
-    private void btnminimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimoActionPerformed
-
-        lista_minimo=true;
-        listamModelProdutos = controllerProdutos.getEstoqueMinimo();
-        DefaultTableModel modelo = (DefaultTableModel) tbProdutos.getModel();
-        TableCellRenderer renderer = new TabelaRenderer();
-        tbProdutos.setDefaultRenderer(Object.class, renderer);
-        tbProdutos.getColumnModel().getColumn(0).setCellRenderer(renderer);
-
-        modelo.setNumRows(0);
-        //CARREGA OS DADOS DA LISTA NA TABELA
-        int cont = listamModelProdutos.size();
-        for (int i = 0; i < cont; i++) {
-            modelo.addRow(new Object[]{
-
-                listamModelProdutos.get(i).getCodigo(),
-                listamModelProdutos.get(i).getNome(),
-                listamModelProdutos.get(i).getValor(),
-                listamModelProdutos.get(i).getEstoque(),
-                listamModelProdutos.get(i).getEstoqueMinimo()
-            });
-        }
-
-    }//GEN-LAST:event_btnminimoActionPerformed
-
-    private void txt_porcentagemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_porcentagemKeyReleased
-        if (evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER){
-            if(!vl_custo.getText().isEmpty()){
-                float custo = DataClasses.converterMoedaParaFloat(vl_custo.getText());
-                float margem = DataClasses.converterMoedaParaFloat(txt_porcentagem.getText());
-                float valor = (custo/100) * margem;
-                float valor_venda = custo+valor;
-                this.tfValor.setText(String.format("%.2f",custo+valor));
-                float lucro = valor_venda - custo;
-                this.lbl_lucroreal.setText("R$ "+ String.format("%.2f",lucro)  );
-            }
-        }
-        //this.txt_porcentagem.setText(String.format("%.2f", porc)+"%");
-    }//GEN-LAST:event_txt_porcentagemKeyReleased
-    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (tipoCadastro.equals("novo")){
-            salvarProduto();
-        } else if(tipoCadastro.equals("alteracao")){
-            alterarProduto();
+        // Exclui produto no banco
+        int linha = jTableProduto.getSelectedRow();
+        int codigoProduto = (int) jTableProduto.getValueAt(linha, 0);
+        if (controllerProduto.excluirProdutoController(codigoProduto)) {
+            JOptionPane.showMessageDialog(this, "PRODUTO EXCLUÍDO COM SUCESSO!", "MANUTENÇÃO DE PRODUTO", JOptionPane.INFORMATION_MESSAGE);
+            preencheTabelaProduto();
+            habilitarDesabilitarCampos(false);
+        } else {
+            JOptionPane.showMessageDialog(this, "ERRO AO EXCLUIR PRODUTO!", "MANUTENÇÃO DE PRODUTO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        this.desabilitarCampos();
-        this.tipoCadastro="";
-    }//GEN-LAST:event_btCancelarActionPerformed
+    private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
+        // Habilitando os campos para edição
+        salvarAlterar = "salvar";
+        this.habilitarDesabilitarCampos(true);
+        limparCampos();
+    }//GEN-LAST:event_jButtonNovoActionPerformed
 
-    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
-        excluirProduto();
-    }//GEN-LAST:event_btExcluirActionPerformed
-
-    private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
-        this.linha = this.tbProdutos.getSelectedRow();
-        if(this.linha > -1){
-            novoProduto();
-            habilitarCampos();
-            recuperarProduto();
-            tipoCadastro = "alteracao";
-        }
-    }//GEN-LAST:event_btAlterarActionPerformed
-
-    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-        novoProduto();
-        habilitarCampos();
-        tipoCadastro = "novo";
-    }//GEN-LAST:event_btNovoActionPerformed
-
-    private void tfPesquisaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisaProdutoActionPerformed
-
-        System.out.print( evt.getActionCommand() );
-        btPesquisaProdutoActionPerformed(evt);
-
-    }//GEN-LAST:event_tfPesquisaProdutoActionPerformed
-
-    private void btPesquisaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaProdutoActionPerformed
-
-        if(lista_minimo){
-            carregarProdutos();
-        }
-        final TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(modelo);
-        this.tbProdutos.setRowSorter(sorter);
-        String text = tfPesquisaProduto.getText();
-        int campo = radio_nome.isSelected() ? 1 : 0;
-        sorter.setRowFilter(RowFilter.regexFilter("(?i)" + text, campo));
-    }//GEN-LAST:event_btPesquisaProdutoActionPerformed
-
-    private void tfValorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfValorKeyReleased
-        
-        if (evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER){
-            if(!vl_custo.getText().isEmpty()){
-
-                float custo = DataClasses.converterMoedaParaFloat(vl_custo.getText());
-                float venda = DataClasses.converterMoedaParaFloat(tfValor.getText());
-                float lucro = venda - custo;
-                float porc = (lucro/custo) * 100;
-
-                this.lbl_lucroreal.setText("R$ "+ String.format("%.2f",lucro)  );
-                this.txt_porcentagem.setText(String.format("%.2f", porc));
-            }
-        }
-        
-    }//GEN-LAST:event_tfValorKeyReleased
-
-    private void listarFornecedor(){
-        listaFornecedor = controllerFornecedor.getListaFornecedorController();
-        cbFornecedores.removeAllItems();
-        for (int i = 0; i < listaFornecedor.size(); i++){
-            cbFornecedores.addItem(listaFornecedor.get(i).getNome());
-        }
-    }
-    
-    private void excluirProduto(){
-        int linha = tbProdutos.getSelectedRow();
-        String nome = (String) tbProdutos.getValueAt(linha, 1);
-        int codigo = (int) tbProdutos.getValueAt(linha, 0);
-        //pegunta se realmente deseja excluir
-        int opcao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja"
-                + " excluir o registro:\n" + "\n " + nome + "?", "Atenção", JOptionPane.YES_NO_OPTION);
-        //se sim exclui, se não não faz nada    
-        if (opcao == JOptionPane.OK_OPTION) {
-            if (controllerProdutos.excluirProdutosController(codigo)) {
-                JOptionPane.showMessageDialog(null, "Registro excluido com suscesso!");
-                carregarProdutos();
-            }else{
-            JOptionPane.showMessageDialog(this, "Erro ao e os dados!", "ERRO", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
-    
-    private boolean recuperarProduto() {
-     
-        String codigo = (String) tbProdutos.getValueAt(linha, 0);
-        try {
-            //recupera os dados do banco
-            modelProdutos = controllerProdutos.getProdutosController(codigo);
-            //seta os dados na interface
-            this.tfCodigo.setText(String.valueOf(modelProdutos.getCodigo()));
-            this.jtfNome.setText(modelProdutos.getNome());
-            this.tfValor.setText(DataClasses.converterFloatParaMoeda(modelProdutos.getValor(), false) );
-            this.tfEstoque.setText(String.valueOf(modelProdutos.getEstoque()));
-            this.cbFornecedores.setSelectedItem(controllerFornecedor.getFornecedorController(modelProdutos.getFornecedoresCodigo()).getNome());
-            this.vl_custo.setText(DataClasses.converterFloatParaMoeda(modelProdutos.getValorCusto(), false) ) ;
-            this.txtminimo.setText( modelProdutos.getEstoqueMinimo().toString() );
-            return true;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Código inválido ou nenhum registro selecionado", "Aviso", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }        
-    }
-    
-    private boolean alterarProduto(){
-        modelProdutos.setCodigo( this.tfCodigo.getText() );
-        modelProdutos.setNome(this.jtfNome.getText());
-        modelProdutos.setValor(DataClasses.converterMoedaParaFloat(this.tfValor.getText()));
-        modelProdutos.setFornecedoresCodigo(controllerFornecedor.getFornecedorController(this.cbFornecedores.getSelectedItem().toString()).getCodigo());
-        modelProdutos.setEstoque(Integer.parseInt(this.tfEstoque.getText()));
-        modelProdutos.setEstoqueMinimo(Integer.parseInt(this.txtminimo.getText()));
-        int id = listamModelProdutos.get(this.linha).getId();
-        modelProdutos.setId(id);
-        //salvar 
-        if (controllerProdutos.atualizarProdutosController(modelProdutos)) {
-            JOptionPane.showMessageDialog(this, "Registro alterado com sucesso!");
-            this.desabilitarCampos();
-            this.carregarProdutos();
-            this.tipoCadastro="";
-            return true;
-        } else {
-            JOptionPane.showMessageDialog(this, "Erro ao alterar os dados!", "ERRO", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-    }
-    
-    private void carregarProdutos() {
-        this.linha = -1;
-        lista_minimo=false;
-        listamModelProdutos = controllerProdutos.getListaProdutosController();
-        //tbProdutos.setSelectionBackground(new Color(223,255,216));
-        
-        modelo.setNumRows(0);
-        //CARREGA OS DADOS DA LISTA NA TABELA
-        int cont = listamModelProdutos.size();
-        for (int i = 0; i < cont; i++) {
-            modelo.addRow(new Object[]{
-                
-                listamModelProdutos.get(i).getCodigo(),
-                listamModelProdutos.get(i).getNome(),
-                listamModelProdutos.get(i).getValor(),
-                listamModelProdutos.get(i).getEstoque(),
-                listamModelProdutos.get(i).getEstoqueMinimo()
-                //listamModelProdutos.get(i).getEstoqueMinimo()                 
-            });
-        }
-    }
-    
-    protected void desabilitarCampos(){
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        //desabilita e limpa os campos
+        salvarAlterar = "salvar";
+        this.habilitarDesabilitarCampos(false);
         this.limparCampos();
-        jtfNome.setEditable(false);       
-        tfValor.setEditable(false);
-        vl_custo.setEditable(false);
-        tfEstoque.setEditable(false);
-        tfCodigo.setEditable(false);
-        cbFornecedores.setEditable(false);                
-        //tfPesquisaProduto.setEditable(false);
-        txt_porcentagem.setEditable(false);
-        txtminimo.setEditable(false);
-        lbl_lucroreal.setText("");
-        carregarProdutos();
-    }
-    
-    protected void limparCampos(){
-        jtfNome.setText("");
-        tfValor.setText("");
-        vl_custo.setText("");
-        tfEstoque.setText("");
-        tfCodigo.setText("");
-        txt_porcentagem.setText("");
-        txtminimo.setText("");
-    }
-    
-    private void novoProduto(){
-        habilitarCampos();
-        tfCodigo.setText("");
-        jtfNome.setText("");
-        tfValor.setText("");
-        vl_custo.setText("");
-        tfEstoque.setText("");
-        cbFornecedores.setSelectedItem("");
-        txtminimo.setText("");
-        tipoCadastro = "novo";
-    }
-    
-    private void habilitarCampos(){
-        jtfNome.setEditable(true);
-        tfCodigo.setEditable(true);
-        tfValor.setEditable(true);
-        tfEstoque.setEditable(true);
-        vl_custo.setEditable(true);
-        txt_porcentagem.setEditable(true);
-        txtminimo.setEditable(true);
-    }
-    
-    private boolean salvarProduto(){
-        modelProdutos.setCodigo( this.tfCodigo.getText() );
-        modelProdutos.setNome(this.jtfNome.getText());
-        modelProdutos.setValor(DataClasses.converterMoedaParaFloat(this.tfValor.getText()));
-        modelProdutos.setFornecedoresCodigo(controllerFornecedor.getFornecedorController(this.cbFornecedores.getSelectedItem().toString()).getCodigo());
-        modelProdutos.setEstoque(Integer.parseInt(this.tfEstoque.getText()));
-        modelProdutos.setValorCusto(DataClasses.converterMoedaParaFloat(this.vl_custo.getText()));
-        modelProdutos.setEstoqueMinimo( Integer.parseInt(this.txtminimo.getText()) );
-        //salvar 
-        if (controllerProdutos.salvarProdutosController(modelProdutos)>0) {
-            JOptionPane.showMessageDialog(this, "Registro gravado com sucesso!");
-            this.desabilitarCampos();
-            this.carregarProdutos();
-            this.tipoCadastro="";
-            return true;
-        } else {
-            JOptionPane.showMessageDialog(this, "Erro ao gravar os dados!", "ERRO", JOptionPane.ERROR_MESSAGE);
-            return false;
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        //Pega os dados da tabela e seta nos campos para a edição
+        salvarAlterar = "alterar";
+        int linha = this.jTableProduto.getSelectedRow();
+        try {
+            int codigoProduto = (int) this.jTableProduto.getValueAt(linha, 0);
+            //Recuperando dados do banco
+            modelProduto = controllerProduto.retornarProdutoController(codigoProduto);
+            //Seta dados nos campos do formulário
+            this.jTextFieldCodigo.setText(String.valueOf(modelProduto.getIdProduto()));
+            this.jTextFieldNome.setText(modelProduto.getProNome());
+            this.jTextFieldEstoque.setText(String.valueOf(modelProduto.getProEstoque()));
+            this.jTextFieldValor.setText(String.valueOf(modelProduto.getProValor()));
+            habilitarDesabilitarCampos(true);
+        } catch (Exception e) {
+            habilitarDesabilitarCampos(false);
+            JOptionPane.showMessageDialog(this, "CÓDIGO INVÁLIDO OU NENHUM REGISTRO SELECIONADO!", "MANUTENÇÃO DE PRODUTO", JOptionPane.ERROR_MESSAGE);
         }
-    }
-    
-    private void vincularTamanhoTab(){
-        int altura = getHeight()-40;
-        int largura = getWidth()-10;
-        jTabbedPane1.setSize(largura, altura);
-    }
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
+
+    private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
+        //Filtra os produtos na tabela
+        DefaultTableModel modelo = (DefaultTableModel) jTableProduto.getModel();
+        final TableRowSorter<TableModel> classificador = new TableRowSorter<>(modelo);
+        this.jTableProduto.setRowSorter(classificador);
+        String textoPesquisa = this.jTextFieldPesquisar.getText();
+        classificador.setRowFilter(RowFilter.regexFilter(textoPesquisa.toUpperCase(), 1));
+    }//GEN-LAST:event_jButtonPesquisarActionPerformed
+
+    private void jButtonRelProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRelProdutosActionPerformed
+        
+        final ViewAguarde viewAguarde = new ViewAguarde();
+        viewAguarde.setVisible(true);
+        Thread t = new Thread() {
+
+            public void run() {
+                try {
+                    controllerProduto.gerarRelatorioProdutos();
+                    viewAguarde.dispose();
+                } catch (Exception e) {
+                     JOptionPane.showMessageDialog(null, "ERRO AO IMPRIMIR RELATÓRIO!\n" + e.getMessage(), "MANUTENÇÃO DE PRODUTOS", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        };
+        t.start();
+    }//GEN-LAST:event_jButtonRelProdutosActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ViewProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ViewProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ViewProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ViewProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ViewProduto().setVisible(true);
@@ -683,42 +411,110 @@ public class ViewProduto extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Salva um produto no banco
+     */
+    private void salvarProduto() {
+        // Salva produto no banco
+        modelProduto.setProNome(this.jTextFieldNome.getText());
+        modelProduto.setProEstoque(Integer.parseInt(this.jTextFieldEstoque.getText()));
+        //modelProduto.setProValor(formatador.converteVirgulaParaPonto(this.jTextFieldValor.getText()));
+        modelProduto.setProValor(Double.parseDouble(this.jTextFieldValor.getText().replace(',', '.')));
+
+        if (controllerProduto.salvarProdutoController(modelProduto) > 0) {
+            JOptionPane.showMessageDialog(this, "PRODUTO CADASTRADO COM SUCESSO!", "MANUTENÇÃO DE PRODUTO", JOptionPane.INFORMATION_MESSAGE);
+            this.preencheTabelaProduto();
+            this.limparCampos();
+            this.habilitarDesabilitarCampos(false);
+        } else {
+            JOptionPane.showMessageDialog(this, "ERRO AO CADASTRAR PRODUTO!", "MANUTENÇÃO DE PRODUTO", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    /**
+     * Aletera produto no banco
+     */
+    private void alteraProduto() {
+        // Altera um produto no banco
+        modelProduto.setProNome(this.jTextFieldNome.getText());
+        modelProduto.setProEstoque(Integer.parseInt(this.jTextFieldEstoque.getText()));
+        //modelProduto.setProValor(formatador.converteVirgulaParaPonto(this.jTextFieldValor.getText()));
+        modelProduto.setProValor(Double.parseDouble(this.jTextFieldValor.getText().replace(',', '.')));
+
+        if (controllerProduto.alteraProdutoController(modelProduto)) {
+            JOptionPane.showMessageDialog(this, "PRODUTO ALTERADO COM SUCESSO!", "MANUTENÇÃO DE PRODUTO", JOptionPane.INFORMATION_MESSAGE);
+            this.preencheTabelaProduto();
+            this.limparCampos();
+            this.habilitarDesabilitarCampos(false);
+        } else {
+            JOptionPane.showMessageDialog(this, "ERRO AO ALTERAR PRODUTO!", "MANUTENÇÃO DE PRODUTO", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    /**
+     * Habilita ou desabilita os campos para edição no formulário
+     *
+     * @param condicao
+     */
+    private void habilitarDesabilitarCampos(boolean condicao) {
+        this.jTextFieldNome.setEnabled(condicao);
+        this.jTextFieldEstoque.setEnabled(condicao);
+        this.jTextFieldValor.setEnabled(condicao);
+        this.jButtonSalvar.setEnabled(condicao);
+        this.jButtonCancelar.setEnabled(condicao);
+    }
+
+    /**
+     * Limpa todo os campos do formulário
+     */
+    private void limparCampos() {
+        this.jTextFieldCodigo.setText("");
+        this.jTextFieldNome.setText("");
+        this.jTextFieldEstoque.setText("");
+        this.jTextFieldValor.setText("");
+    }
+
+    /**
+     * Preenche a tabela com a lista de produtos
+     */
+    private void preencheTabelaProduto() {
+        listaModelProdutos = controllerProduto.retornarListaProdutoController();
+        DefaultTableModel modelo = (DefaultTableModel) jTableProduto.getModel();
+        modelo.setNumRows(0);
+        //Inserir produtos na tabela
+        int cont = listaModelProdutos.size();
+        for (int i = 0; i < cont; i++) {
+            modelo.addRow(new Object[]{
+                listaModelProdutos.get(i).getIdProduto(),
+                listaModelProdutos.get(i).getProNome(),
+                listaModelProdutos.get(i).getProEstoque(),
+                listaModelProdutos.get(i).getProValor()
+            });
+        }
+
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAlterar;
-    private javax.swing.JButton btCancelar;
-    private javax.swing.JButton btExcluir;
-    private javax.swing.JButton btNovo;
-    private javax.swing.JButton btPesquisaProduto;
-    private javax.swing.JButton btnentrada;
-    private javax.swing.JButton btnminimo;
-    private componentes.UJComboBox cbFornecedores;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JButton jButtonAlterar;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonNovo;
+    private javax.swing.JButton jButtonPesquisar;
+    private javax.swing.JButton jButtonRelProdutos;
+    private javax.swing.JButton jButtonSalvar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JLayeredPane jLayeredPane3;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jtfNome;
-    private javax.swing.JLabel lbl_lucro;
-    private javax.swing.JLabel lbl_lucro1;
-    private javax.swing.JLabel lbl_lucroreal;
-    private javax.swing.JRadioButton radio_codigo;
-    private javax.swing.JRadioButton radio_nome;
-    private javax.swing.JTable tbProdutos;
-    private javax.swing.JTextField tfCodigo;
-    private javax.swing.JFormattedTextField tfEstoque;
-    private javax.swing.JTextField tfPesquisaProduto;
-    private util.CampoDinheiro tfValor;
-    private javax.swing.JFormattedTextField txt_porcentagem;
-    private javax.swing.JFormattedTextField txtminimo;
-    private util.CampoDinheiro vl_custo;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableProduto;
+    private javax.swing.JTextField jTextFieldCodigo;
+    private javax.swing.JFormattedTextField jTextFieldEstoque;
+    private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextFieldPesquisar;
+    private javax.swing.JFormattedTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
 }

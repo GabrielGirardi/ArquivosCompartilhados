@@ -20,14 +20,16 @@ import javax.swing.JOptionPane;
  */
 public class ConexaoMySql {
 
+    private final String databaseURL = "jdbc:mysql://localhost:3306/A1";
     private boolean status = false;
     private String mensagem = "";   //variavel que vai informar o status da conexao
     private Connection con = null;  //variavel para conexao
     private Statement statement;
     private ResultSet resultSet;
 
+
     private String servidor = "localhost";
-    private String nomeDoBanco = "sisvendas";
+    private String nomeDoBanco = "dbwsvendas";
     private String usuario = "root";
     private String senha = "1001";
     

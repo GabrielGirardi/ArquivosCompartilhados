@@ -1,13 +1,11 @@
 package DAO;
 
-import conexoes.ConexaoMySql;
 import model.ModelCliente;
+import conexoes.ConexaoMySql;
 import java.util.ArrayList;
 /**
 *
- * @author  BLSoft
- * www.Blsoft.com.br
- * Venda de software e código fonte
+* @author Wendel Segadilha
 */
 public class DAOCliente extends ConexaoMySql {
 
@@ -20,22 +18,22 @@ public class DAOCliente extends ConexaoMySql {
         try {
             this.conectar();
             return this.insertSQL(
-                "INSERT INTO clientes ("
-                    + "nome,"
-                    + "endereco,"
-                    + "bairro,"
-                    + "cidade,"
-                    + "uf,"
-                    + "cep,"
-                    + "telefone"
+                "INSERT INTO tbl_cliente ("
+                    + "cli_nome,"
+                    + "cli_endereco,"
+                    + "cli_bairro,"
+                    + "cli_cidade,"
+                    + "cli_uf,"
+                    + "cli_cep,"
+                    + "cli_telefone"
                 + ") VALUES ("
-                    + "'" + pModelCliente.getNome() + "',"
-                    + "'" + pModelCliente.getEndereco() + "',"
-                    + "'" + pModelCliente.getBairro() + "',"
-                    + "'" + pModelCliente.getCidade() + "',"
-                    + "'" + pModelCliente.getUf() + "',"
-                    + "'" + pModelCliente.getCep() + "',"
-                    + "'" + pModelCliente.getTelefone() + "'"
+                    + "'" + pModelCliente.getCliNome() + "',"
+                    + "'" + pModelCliente.getCliEndereco() + "',"
+                    + "'" + pModelCliente.getCliBairro() + "',"
+                    + "'" + pModelCliente.getCliCidade() + "',"
+                    + "'" + pModelCliente.getCliUf() + "',"
+                    + "'" + pModelCliente.getCliCep() + "',"
+                    + "'" + pModelCliente.getCliTelefone() + "'"
                 + ");"
             );
         }catch(Exception e){
@@ -48,41 +46,39 @@ public class DAOCliente extends ConexaoMySql {
 
     /**
     * recupera Cliente
-    * @param pCodigo
+    * @param pIdCliente
     * return ModelCliente
     */
-    public ModelCliente getClienteDAO(int pCodigo){
+    public ModelCliente getClienteDAO(int pIdCliente){
         ModelCliente modelCliente = new ModelCliente();
         try {
             this.conectar();
             this.executarSQL(
                 "SELECT "
-                    + "codigo,"
-                    + "nome,"
-                    + "endereco,"
-                    + "bairro,"
-                    + "cidade,"
-                    + "uf,"
-                    + "cep,"
-                    + "telefone,"
-                    + "cpf"
+                    + "pk_id_cliente,"
+                    + "cli_nome,"
+                    + "cli_endereco,"
+                    + "cli_bairro,"
+                    + "cli_cidade,"
+                    + "cli_uf,"
+                    + "cli_cep,"
+                    + "cli_telefone"
                  + " FROM"
-                     + " clientes"
+                     + " tbl_cliente"
                  + " WHERE"
-                     + " codigo = '" + pCodigo + "'"
+                     + " pk_id_cliente = '" + pIdCliente + "'"
                 + ";"
             );
 
             while(this.getResultSet().next()){
-                modelCliente.setCodigo(this.getResultSet().getInt(1));
-                modelCliente.setNome(this.getResultSet().getString(2));
-                modelCliente.setEndereco(this.getResultSet().getString(3));
-                modelCliente.setBairro(this.getResultSet().getString(4));
-                modelCliente.setCidade(this.getResultSet().getString(5));
-                modelCliente.setUf(this.getResultSet().getString(6));
-                modelCliente.setCep(this.getResultSet().getString(7));
-                modelCliente.setTelefone(this.getResultSet().getString(8));
-                modelCliente.setCPF(this.getResultSet().getString(9));
+                modelCliente.setIdCliente(this.getResultSet().getInt(1));
+                modelCliente.setCliNome(this.getResultSet().getString(2));
+                modelCliente.setCliEndereco(this.getResultSet().getString(3));
+                modelCliente.setCliBairro(this.getResultSet().getString(4));
+                modelCliente.setCliCidade(this.getResultSet().getString(5));
+                modelCliente.setCliUf(this.getResultSet().getString(6));
+                modelCliente.setCliCep(this.getResultSet().getString(7));
+                modelCliente.setCliTelefone(this.getResultSet().getString(8));
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -92,83 +88,41 @@ public class DAOCliente extends ConexaoMySql {
         return modelCliente;
     }
     
-    public ModelCliente getClientePorCPF(String cpf){
-        ModelCliente modelCliente = new ModelCliente();
-        try {
-            this.conectar();
-            this.executarSQL(
-                "SELECT "
-                    + "codigo,"
-                    + "nome,"
-                    + "endereco,"
-                    + "bairro,"
-                    + "cidade,"
-                    + "uf,"
-                    + "cep,"
-                    + "telefone,"
-                    + "cpf"
-                 + " FROM"
-                     + " clientes"
-                 + " WHERE"
-                     + " cpf = '" + cpf + "' limit 1"
-                + ";"
-            );
-
-            while(this.getResultSet().next()){
-                modelCliente.setCodigo(this.getResultSet().getInt(1));
-                modelCliente.setNome(this.getResultSet().getString(2));
-                modelCliente.setEndereco(this.getResultSet().getString(3));
-                modelCliente.setBairro(this.getResultSet().getString(4));
-                modelCliente.setCidade(this.getResultSet().getString(5));
-                modelCliente.setUf(this.getResultSet().getString(6));
-                modelCliente.setCep(this.getResultSet().getString(7));
-                modelCliente.setTelefone(this.getResultSet().getString(8));
-                modelCliente.setCPF(this.getResultSet().getString(9));
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally{
-            this.fecharConexao();
-        }
-        return modelCliente;
-    }
-    
-   /**
+     /**
     * recupera Cliente
-    * @param pNome
+    * @param pNomeCliente
     * return ModelCliente
     */
-    public ModelCliente getClienteDAO(String pNome){
+    public ModelCliente getClienteDAO(String pNomeCliente){
         ModelCliente modelCliente = new ModelCliente();
         try {
             this.conectar();
             this.executarSQL(
                 "SELECT "
-                    + "codigo,"
-                    + "nome,"
-                    + "endereco,"
-                    + "bairro,"
-                    + "cidade,"
-                    + "uf,"
-                    + "cep,"
-                    + "telefone,"
-                    + "cpf"
+                    + "pk_id_cliente,"
+                    + "cli_nome,"
+                    + "cli_endereco,"
+                    + "cli_bairro,"
+                    + "cli_cidade,"
+                    + "cli_uf,"
+                    + "cli_cep,"
+                    + "cli_telefone"
                  + " FROM"
-                     + " clientes"
+                     + " tbl_cliente"
                  + " WHERE"
-                     + " nome = '" + pNome + "'"
+                     + " cli_nome = '" + pNomeCliente + "'"
                 + ";"
             );
 
             while(this.getResultSet().next()){
-                modelCliente.setCodigo(this.getResultSet().getInt(1));
-                modelCliente.setNome(this.getResultSet().getString(2));
-                modelCliente.setEndereco(this.getResultSet().getString(3));
-                modelCliente.setBairro(this.getResultSet().getString(4));
-                modelCliente.setCidade(this.getResultSet().getString(5));
-                modelCliente.setUf(this.getResultSet().getString(6));
-                modelCliente.setCep(this.getResultSet().getString(7));
-                modelCliente.setTelefone(this.getResultSet().getString(8));
+                modelCliente.setIdCliente(this.getResultSet().getInt(1));
+                modelCliente.setCliNome(this.getResultSet().getString(2));
+                modelCliente.setCliEndereco(this.getResultSet().getString(3));
+                modelCliente.setCliBairro(this.getResultSet().getString(4));
+                modelCliente.setCliCidade(this.getResultSet().getString(5));
+                modelCliente.setCliUf(this.getResultSet().getString(6));
+                modelCliente.setCliCep(this.getResultSet().getString(7));
+                modelCliente.setCliTelefone(this.getResultSet().getString(8));
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -177,7 +131,6 @@ public class DAOCliente extends ConexaoMySql {
         }
         return modelCliente;
     }
-
 
     /**
     * recupera uma lista de Cliente
@@ -190,29 +143,29 @@ public class DAOCliente extends ConexaoMySql {
             this.conectar();
             this.executarSQL(
                 "SELECT "
-                    + "codigo,"
-                    + "nome,"
-                    + "endereco,"
-                    + "bairro,"
-                    + "cidade,"
-                    + "uf,"
-                    + "cep,"
-                    + "telefone"
+                    + "pk_id_cliente,"
+                    + "cli_nome,"
+                    + "cli_endereco,"
+                    + "cli_bairro,"
+                    + "cli_cidade,"
+                    + "cli_uf,"
+                    + "cli_cep,"
+                    + "cli_telefone"
                  + " FROM"
-                     + " clientes"
+                     + " tbl_cliente"
                 + ";"
             );
 
             while(this.getResultSet().next()){
                 modelCliente = new ModelCliente();
-                modelCliente.setCodigo(this.getResultSet().getInt(1));
-                modelCliente.setNome(this.getResultSet().getString(2));
-                modelCliente.setEndereco(this.getResultSet().getString(3));
-                modelCliente.setBairro(this.getResultSet().getString(4));
-                modelCliente.setCidade(this.getResultSet().getString(5));
-                modelCliente.setUf(this.getResultSet().getString(6));
-                modelCliente.setCep(this.getResultSet().getString(7));
-                modelCliente.setTelefone(this.getResultSet().getString(8));
+                modelCliente.setIdCliente(this.getResultSet().getInt(1));
+                modelCliente.setCliNome(this.getResultSet().getString(2));
+                modelCliente.setCliEndereco(this.getResultSet().getString(3));
+                modelCliente.setCliBairro(this.getResultSet().getString(4));
+                modelCliente.setCliCidade(this.getResultSet().getString(5));
+                modelCliente.setCliUf(this.getResultSet().getString(6));
+                modelCliente.setCliCep(this.getResultSet().getString(7));
+                modelCliente.setCliTelefone(this.getResultSet().getString(8));
                 listamodelCliente.add(modelCliente);
             }
         }catch(Exception e){
@@ -231,21 +184,20 @@ public class DAOCliente extends ConexaoMySql {
     public boolean atualizarClienteDAO(ModelCliente pModelCliente){
         try {
             this.conectar();
-            this.executarUpdateDeleteSQL(
-                "UPDATE clientes SET "
-                    + "codigo = '" + pModelCliente.getCodigo() + "',"
-                    + "nome = '" + pModelCliente.getNome() + "',"
-                    + "endereco = '" + pModelCliente.getEndereco() + "',"
-                    + "bairro = '" + pModelCliente.getBairro() + "',"
-                    + "cidade = '" + pModelCliente.getCidade() + "',"
-                    + "uf = '" + pModelCliente.getUf() + "',"
-                    + "cep = '" + pModelCliente.getCep() + "',"
-                    + "telefone = '" + pModelCliente.getTelefone() + "'"
+            return this.executarUpdateDeleteSQL(
+                "UPDATE tbl_cliente SET "
+                    + "pk_id_cliente = '" + pModelCliente.getIdCliente() + "',"
+                    + "cli_nome = '" + pModelCliente.getCliNome() + "',"
+                    + "cli_endereco = '" + pModelCliente.getCliEndereco() + "',"
+                    + "cli_bairro = '" + pModelCliente.getCliBairro() + "',"
+                    + "cli_cidade = '" + pModelCliente.getCliCidade() + "',"
+                    + "cli_uf = '" + pModelCliente.getCliUf() + "',"
+                    + "cli_cep = '" + pModelCliente.getCliCep() + "',"
+                    + "cli_telefone = '" + pModelCliente.getCliTelefone() + "'"
                 + " WHERE "
-                    + "codigo = '" + pModelCliente.getCodigo() + "'"
+                    + "pk_id_cliente = '" + pModelCliente.getIdCliente() + "'"
                 + ";"
             );
-            return true;
         }catch(Exception e){
             e.printStackTrace();
             return false;
@@ -256,19 +208,18 @@ public class DAOCliente extends ConexaoMySql {
 
     /**
     * exclui Cliente
-    * @param pCodigo
+    * @param pIdCliente
     * return boolean
     */
-    public boolean excluirClienteDAO(int pCodigo){
+    public boolean excluirClienteDAO(int pIdCliente){
         try {
             this.conectar();
-            this.executarUpdateDeleteSQL(
-                "DELETE FROM clientes "
+            return this.executarUpdateDeleteSQL(
+                "DELETE FROM tbl_cliente "
                 + " WHERE "
-                    + "codigo = '" + pCodigo + "'"
+                    + "pk_id_cliente = '" + pIdCliente + "'"
                 + ";"
             );
-            return true;
         }catch(Exception e){
             e.printStackTrace();
             return false;

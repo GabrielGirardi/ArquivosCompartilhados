@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
 /**
  *
- * @author Administrador
+ * @author Wendel
  */
 public class ModelSessaoUsuario {
     
     public static int codigo;
-    public static String login;
     public static String nome;
+    public static String login;
     
 }

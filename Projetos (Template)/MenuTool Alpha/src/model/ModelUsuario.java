@@ -1,14 +1,14 @@
 package model;
 /**
 *
-* @author Leandro
+* @author Wendel Segadilha
 */
 public class ModelUsuario {
 
-    private int codigo;
-    private String nome;
-    private String login;
-    private String senha;
+    private int idUsuario;
+    private String usuNome;
+    private String usuLogin;
+    private String usuSenha;
 
     /**
     * Construtor
@@ -16,63 +16,63 @@ public class ModelUsuario {
     public ModelUsuario(){}
 
     /**
-    * seta o valor de codigo
-    * @param pCodigo
+    * seta o valor de idUsuario
+    * @param pIdUsuario
     */
-    public void setCodigo(int pCodigo){
-        this.codigo = pCodigo;
+    public void setIdUsuario(int pIdUsuario){
+        this.idUsuario = pIdUsuario;
     }
     /**
-    * return pk_codigo
+    * return pk_idUsuario
     */
-    public int getCodigo(){
-        return this.codigo;
-    }
-
-    /**
-    * seta o valor de nome
-    * @param pNome
-    */
-    public void setNome(String pNome){
-        this.nome = pNome;
-    }
-    /**
-    * return nome
-    */
-    public String getNome(){
-        return this.nome;
+    public int getIdUsuario(){
+        return this.idUsuario;
     }
 
     /**
-    * seta o valor de login
-    * @param pLogin
+    * seta o valor de usuNome
+    * @param pUsuNome
     */
-    public void setLogin(String pLogin){
-        this.login = pLogin;
+    public void setUsuNome(String pUsuNome){
+        this.usuNome = pUsuNome;
     }
     /**
-    * return login
+    * return usuNome
     */
-    public String getLogin(){
-        return this.login;
+    public String getUsuNome(){
+        return this.usuNome;
     }
 
     /**
-    * seta o valor de senha
-    * @param pSenha
+    * seta o valor de usuLogin
+    * @param pUsuLogin
     */
-    public void setSenha(String pSenha){
-        this.senha = pSenha;
+    public void setUsuLogin(String pUsuLogin){
+        this.usuLogin = pUsuLogin;
     }
     /**
-    * return senha
+    * return usuLogin
     */
-    public String getSenha(){
-        return this.senha;
+    public String getUsuLogin(){
+        return this.usuLogin;
+    }
+
+    /**
+    * seta o valor de usuSenha
+    * @param pUsuSenha
+    */
+    public void setUsuSenha(String pUsuSenha){
+        this.usuSenha = pUsuSenha;
+    }
+    /**
+    * return usuSenha
+    */
+    public String getUsuSenha(){
+        return this.usuSenha;
     }
 
     @Override
     public String toString(){
-        return "ModelUsuario {" + "::codigo = " + this.codigo + "::nome = " + this.nome + "::login = " + this.login + "::senha = " + this.senha +  "}";
+        return "ModelUsuario {" + "::idUsuario = " + this.idUsuario + "::usuNome = " + this.usuNome + "::usuLogin = " + this.usuLogin + "::usuSenha = " + this.usuSenha +  "}";
     }
 }

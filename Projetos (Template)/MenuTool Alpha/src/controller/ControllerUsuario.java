@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
 *
-* @author Leandro
+* @author Wendel Segadilha
 */
 public class ControllerUsuario {
 
@@ -20,17 +20,8 @@ public class ControllerUsuario {
     public int salvarUsuarioController(ModelUsuario pModelUsuario){
         return this.daoUsuario.salvarUsuarioDAO(pModelUsuario);
     }
-
-    /**
-    * recupera Usuario
-    * @param pCodigo
-    * return ModelUsuario
-    */
-    public ModelUsuario getUsuarioController(int pCodigo){
-        return this.daoUsuario.getUsuarioDAO(pCodigo);
-    }
     
-    /**
+       /**
     * recupera Usuario
     * @param pLogin
     * return ModelUsuario
@@ -38,19 +29,19 @@ public class ControllerUsuario {
     public ModelUsuario getUsuarioController(String pLogin){
         return this.daoUsuario.getUsuarioDAO(pLogin);
     }
-    
+
     /**
     * recupera Usuario
-    * @param pModelUsuario
+    * @param pIdUsuario
     * return ModelUsuario
     */
-    public boolean getUsuarioController(ModelUsuario pModelUsuario){
-        return this.daoUsuario.getUsuarioDAO(pModelUsuario);
+    public ModelUsuario getUsuarioController(int pIdUsuario){
+        return this.daoUsuario.getUsuarioDAO(pIdUsuario);
     }
 
     /**
     * recupera uma lista deUsuario
-    * @param pCodigo
+    * @param pIdUsuario
     * return ArrayList
     */
     public ArrayList<ModelUsuario> getListaUsuarioController(){
@@ -68,10 +59,19 @@ public class ControllerUsuario {
 
     /**
     * exclui Usuario
-    * @param pCodigo
+    * @param pIdUsuario
     * return boolean
     */
-    public boolean excluirUsuarioController(int pCodigo){
-        return this.daoUsuario.excluirUsuarioDAO(pCodigo);
+    public boolean excluirUsuarioController(int pIdUsuario){
+        return this.daoUsuario.excluirUsuarioDAO(pIdUsuario);
+    }
+    
+    /**
+     * Valida login e senha do usuário
+     * @param pModelUsuario
+     * @return 
+     */
+    public boolean getValidarUsuarioController(ModelUsuario pModelUsuario) {
+       return this.daoUsuario.getValidarUsuarioDAO(pModelUsuario);
     }
 }

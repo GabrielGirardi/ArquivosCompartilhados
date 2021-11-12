@@ -3,17 +3,14 @@ package controller;
 import model.ModelCliente;
 import DAO.DAOCliente;
 import java.util.ArrayList;
-import relatorios.DAORelatorios;
 
 /**
- * @author  BLSoft
- * www.Blsoft.com.br
- * Venda de software e código fonte
+*
+* @author Wendel Segadilha
 */
 public class ControllerCliente {
 
     private DAOCliente daoCliente = new DAOCliente();
-    private DAORelatorios dAORelatorios = new DAORelatorios();
 
     /**
     * grava Cliente
@@ -26,25 +23,25 @@ public class ControllerCliente {
 
     /**
     * recupera Cliente
-    * @param pCodigo
+    * @param pIdCliente
     * return ModelCliente
     */
-    public ModelCliente getClienteController(int pCodigo){
-        return this.daoCliente.getClienteDAO(pCodigo);
+    public ModelCliente getClienteController(int pIdCliente){
+        return this.daoCliente.getClienteDAO(pIdCliente);
     }
     
-    /**
-    * recupera Cliente
-    * @param pNome
+      /**
+    * recupera Cliente pelo nome
+    * @param pNomeCliente
     * return ModelCliente
     */
-    public ModelCliente getClienteController(String pNome){
-        return this.daoCliente.getClienteDAO(pNome);
+    public ModelCliente getClienteController(String pNomeCliente){
+        return this.daoCliente.getClienteDAO(pNomeCliente);
     }
 
     /**
     * recupera uma lista deCliente
-    * @param pCodigo
+    * @param pIdCliente
     * return ArrayList
     */
     public ArrayList<ModelCliente> getListaClienteController(){
@@ -62,19 +59,10 @@ public class ControllerCliente {
 
     /**
     * exclui Cliente
-    * @param pCodigo
+    * @param pIdCliente
     * return boolean
     */
-    public boolean excluirClienteController(int pCodigo){
-        return this.daoCliente.excluirClienteDAO(pCodigo);
-    }
-
-    public boolean gerarRelatorioCliente() {
-        return this.dAORelatorios.gerarRelatorioCliente();
-    }
-     
-    public ModelCliente getClientePorCPF(String cpf){
-        String s = cpf.replaceAll("[^0-9]", "");
-        return this.daoCliente.getClientePorCPF(s);
+    public boolean excluirClienteController(int pIdCliente){
+        return this.daoCliente.excluirClienteDAO(pIdCliente);
     }
 }

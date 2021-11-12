@@ -1,23 +1,18 @@
 package model;
-
-import DAO.DAOCliente;
-import controller.ControllerCliente;
-
 /**
- * @author  BLSoft
- * www.Blsoft.com.br
- * Venda de software e código fonte
+*
+* @author Wendel Segadilha
 */
 public class ModelCliente {
 
-    private int codigo;
-    private String nome;
-    private String endereco;
-    private String bairro;
-    private String cidade;
-    private String uf;
-    private String cep;
-    private String telefone, cpf="";
+    private int idCliente;
+    private String cliNome;
+    private String cliEndereco;
+    private String cliBairro;
+    private String cliCidade;
+    private String cliUf;
+    private String cliCep;
+    private String cliTelefone;
 
     /**
     * Construtor
@@ -25,135 +20,119 @@ public class ModelCliente {
     public ModelCliente(){}
 
     /**
-    * seta o valor de codigo
-    * @param pCodigo
+    * seta o valor de idCliente
+    * @param pIdCliente
     */
-    public void setCodigo(int pCodigo){
-        this.codigo = pCodigo;
+    public void setIdCliente(int pIdCliente){
+        this.idCliente = pIdCliente;
     }
     /**
-    * return codigo
+    * return pk_idCliente
     */
-    public int getCodigo(){
-        return this.codigo;
-    }
-    
-    public void setCPF(String cpf){
-        this.cpf = cpf;
-    }
-    
-    public String getCPF(){
-        return this.cpf;
+    public int getIdCliente(){
+        return this.idCliente;
     }
 
     /**
-    * seta o valor de nome
-    * @param pNome
+    * seta o valor de cliNome
+    * @param pCliNome
     */
-    public void setNome(String pNome){
-        this.nome = pNome;
+    public void setCliNome(String pCliNome){
+        this.cliNome = pCliNome;
     }
     /**
-    * return nome
+    * return cliNome
     */
-    public String getNome(){
-        return this.nome;
+    public String getCliNome(){
+        return this.cliNome;
     }
 
     /**
-    * seta o valor de endereco
-    * @param pEndereco
+    * seta o valor de cliEndereco
+    * @param pCliEndereco
     */
-    public void setEndereco(String pEndereco){
-        this.endereco = pEndereco;
+    public void setCliEndereco(String pCliEndereco){
+        this.cliEndereco = pCliEndereco;
     }
     /**
-    * return endereco
+    * return cliEndereco
     */
-    public String getEndereco(){
-        return this.endereco;
+    public String getCliEndereco(){
+        return this.cliEndereco;
     }
 
     /**
-    * seta o valor de bairro
-    * @param pBairro
+    * seta o valor de cliBairro
+    * @param pCliBairro
     */
-    public void setBairro(String pBairro){
-        this.bairro = pBairro;
+    public void setCliBairro(String pCliBairro){
+        this.cliBairro = pCliBairro;
     }
     /**
-    * return bairro
+    * return cliBairro
     */
-    public String getBairro(){
-        return this.bairro;
+    public String getCliBairro(){
+        return this.cliBairro;
     }
 
     /**
-    * seta o valor de cidade
-    * @param pCidade
+    * seta o valor de cliCidade
+    * @param pCliCidade
     */
-    public void setCidade(String pCidade){
-        this.cidade = pCidade;
+    public void setCliCidade(String pCliCidade){
+        this.cliCidade = pCliCidade;
     }
     /**
-    * return cidade
+    * return cliCidade
     */
-    public String getCidade(){
-        return this.cidade;
+    public String getCliCidade(){
+        return this.cliCidade;
     }
 
     /**
-    * seta o valor de uf
-    * @param pUf
+    * seta o valor de cliUf
+    * @param pCliUf
     */
-    public void setUf(String pUf){
-        this.uf = pUf;
+    public void setCliUf(String pCliUf){
+        this.cliUf = pCliUf;
     }
     /**
-    * return uf
+    * return cliUf
     */
-    public String getUf(){
-        return this.uf;
+    public String getCliUf(){
+        return this.cliUf;
     }
 
     /**
-    * seta o valor de cep
-    * @param pCep
+    * seta o valor de cliCep
+    * @param pCliCep
     */
-    public void setCep(String pCep){
-        this.cep = pCep;
+    public void setCliCep(String pCliCep){
+        this.cliCep = pCliCep;
     }
     /**
-    * return cep
+    * return cliCep
     */
-    public String getCep(){
-        return this.cep;
+    public String getCliCep(){
+        return this.cliCep;
     }
 
     /**
-    * seta o valor de telefone
-    * @param pTelefone
+    * seta o valor de cliTelefone
+    * @param pCliTelefone
     */
-    public void setTelefone(String pTelefone){
-        this.telefone = pTelefone;
+    public void setCliTelefone(String pCliTelefone){
+        this.cliTelefone = pCliTelefone;
     }
-    
     /**
-    * return telefone
+    * return cliTelefone
     */
-    public String getTelefone(){
-        return this.telefone;
+    public String getCliTelefone(){
+        return this.cliTelefone;
     }
-
 
     @Override
     public String toString(){
-        return "ModelCliente {" + "::codigo = " + this.codigo + "::nome = " + this.nome + "::endereco = " + this.endereco + "::bairro = " + this.bairro + "::cidade = " + this.cidade + "::uf = " + this.uf + "::cep = " + this.cep + "::telefone = " + this.telefone +"}";
-    }
-    
-    public static ModelCliente retornarClientePorCPF(String cpf){
-        
-        ControllerCliente ctrl = new ControllerCliente();
-        return ctrl.getClientePorCPF(cpf);
+        return "ModelCliente {" + "::idCliente = " + this.idCliente + "::cliNome = " + this.cliNome + "::cliEndereco = " + this.cliEndereco + "::cliBairro = " + this.cliBairro + "::cliCidade = " + this.cliCidade + "::cliUf = " + this.cliUf + "::cliCep = " + this.cliCep + "::cliTelefone = " + this.cliTelefone +  "}";
     }
 }

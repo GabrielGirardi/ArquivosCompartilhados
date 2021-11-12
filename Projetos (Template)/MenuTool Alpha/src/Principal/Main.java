@@ -5,20 +5,31 @@
  */
 package Principal;
 
+
 import Venda.main3;
 import aplicacao.IHM;
 import aplicacao.Menu;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import view.ViewClientes;
-import view.ViewProduto;
+import view.ViewCliente;
 import view.ViewUsuario;
+import view.ViewPDV;
+import view.ViewProduto;
+import view.ViewRelatorioVendas;
+import view.ViewVenda;
+
+
+        
 
 /**
  *
  * @author shop.credi
  */
 public class Main extends javax.swing.JFrame {
+
+    public static int getTerminal() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     /**
      * Creates new form Main
@@ -43,6 +54,7 @@ public class Main extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         jLabel6 = new javax.swing.JLabel();
         btClientes1 = new javax.swing.JButton();
+        btClientes7 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         btClientes4 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -58,6 +70,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Shop Credi");
@@ -96,6 +109,23 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(btClientes1);
+
+        btClientes7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/Dollar.png"))); // NOI18N
+        btClientes7.setText("Relatório de Vendas");
+        btClientes7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btClientes7.setFocusable(false);
+        btClientes7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btClientes7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btClientes7.setMaximumSize(new java.awt.Dimension(200, 40));
+        btClientes7.setMinimumSize(new java.awt.Dimension(200, 40));
+        btClientes7.setPreferredSize(new java.awt.Dimension(200, 40));
+        btClientes7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btClientes7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btClientes7ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btClientes7);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 0, 0));
@@ -202,6 +232,7 @@ public class Main extends javax.swing.JFrame {
         });
         jToolBar1.add(btClientes5);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/18x18/Medium rating.png"))); // NOI18N
         jMenu1.setText("App");
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
@@ -224,6 +255,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/18x18/Info.png"))); // NOI18N
         jMenu2.setText("Extra");
 
         jMenuItem2.setText("Ajuda");
@@ -233,6 +265,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem2);
+
+        jMenuItem4.setText("Relatório");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
 
@@ -291,11 +331,11 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void btClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientesActionPerformed
-       new ViewClientes().setVisible(true);
+       new ViewCliente().setVisible(true);
     }//GEN-LAST:event_btClientesActionPerformed
 
     private void btClientes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientes1ActionPerformed
-        new main3().setVisible(true);
+        new ViewPDV().setVisible(true);
     }//GEN-LAST:event_btClientes1ActionPerformed
 
     private void btClientes2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientes2ActionPerformed
@@ -306,13 +346,22 @@ public class Main extends javax.swing.JFrame {
         new Menu().setVisible(true);
     }//GEN-LAST:event_btClientes3ActionPerformed
 
-    private void btClientes4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientes4ActionPerformed
-        new ViewProduto().setVisible(true);
-    }//GEN-LAST:event_btClientes4ActionPerformed
-
     private void btClientes5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientes5ActionPerformed
          new IHM().setVisible(true);
     }//GEN-LAST:event_btClientes5ActionPerformed
+
+    private void btClientes7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientes7ActionPerformed
+         new ViewVenda().setVisible(true);        
+    }//GEN-LAST:event_btClientes7ActionPerformed
+
+    private void btClientes4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientes4ActionPerformed
+       new ViewProduto().setVisible(true);
+    }//GEN-LAST:event_btClientes4ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        ViewRelatorioVendas viewRelatorioVendas = new ViewRelatorioVendas();
+        viewRelatorioVendas.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -356,6 +405,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btClientes3;
     private javax.swing.JButton btClientes4;
     private javax.swing.JButton btClientes5;
+    private javax.swing.JButton btClientes7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -370,6 +420,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }
