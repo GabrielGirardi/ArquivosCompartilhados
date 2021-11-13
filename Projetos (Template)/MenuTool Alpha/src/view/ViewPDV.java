@@ -35,7 +35,7 @@ import util.BLMascaras;
 
 /**
  *
- * @author gabriel.girardi
+ * @author Wendel
  */
 public class ViewPDV extends javax.swing.JFrame {
 
@@ -89,6 +89,7 @@ public class ViewPDV extends javax.swing.JFrame {
         jLabelOperador = new javax.swing.JLabel();
         jLabelSatus = new javax.swing.JLabel();
         panel5 = new java.awt.Panel();
+        jLabel7 = new javax.swing.JLabel();
         jTextFieldBruto = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -100,7 +101,6 @@ public class ViewPDV extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableProdutos = new javax.swing.JTable();
         jTextFieldCodigoProduto = new javax.swing.JFormattedTextField();
-        jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -111,13 +111,13 @@ public class ViewPDV extends javax.swing.JFrame {
         jMenuItemFechaVenda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("PDV - WS VENDAS");
+        setTitle("PDV - Shop Credi VENDAS");
         setBackground(new java.awt.Color(153, 255, 153));
 
-        panel1.setBackground(new java.awt.Color(51, 153, 255));
+        panel1.setBackground(new java.awt.Color(102, 153, 255));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_sale_lineal_color_cnvrt-17_3827705 (1).png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_Line_ui_icons_Svg-10_1465826.png"))); // NOI18N
         jLabel8.setText("Shop Credi");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -137,7 +137,7 @@ public class ViewPDV extends javax.swing.JFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        panel2.setBackground(new java.awt.Color(102, 153, 255));
+        panel2.setBackground(new java.awt.Color(51, 153, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("CAIXA:");
@@ -204,6 +204,9 @@ public class ViewPDV extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setText("VALOR BRUTO:");
+
         jTextFieldBruto.setEditable(false);
         jTextFieldBruto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTextFieldBruto.setForeground(new java.awt.Color(255, 0, 0));
@@ -244,13 +247,19 @@ public class ViewPDV extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(jLabel13)
                             .addComponent(jLabel14))
-                        .addGap(0, 22, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(panel5Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel5Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldBruto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(jLabel9)
@@ -342,9 +351,6 @@ public class ViewPDV extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setText("VALOR BRUTO:");
-
         jMenu1.setText("ARQUIVO");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
@@ -411,11 +417,6 @@ public class ViewPDV extends javax.swing.JFrame {
                     .addComponent(jTextFieldCodigoProduto, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(381, 381, 381)
-                    .addComponent(jLabel7)
-                    .addContainerGap(382, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,11 +431,6 @@ public class ViewPDV extends javax.swing.JFrame {
                         .addGap(1, 1, 1))
                     .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(265, 265, 265)
-                    .addComponent(jLabel7)
-                    .addContainerGap(266, Short.MAX_VALUE)))
         );
 
         pack();
