@@ -74,12 +74,12 @@ public class ViewPagamentoPDV extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 0, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("FORMAS DE PAGAMENTOS");
+        jLabel5.setText("PAGAMENTO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,15 +98,18 @@ public class ViewPagamentoPDV extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 0, 51));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("PAGAMENTO:");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("SUBTOTAL:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("DESCONTO:");
 
         jComboBoxFormaPagamento.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -145,6 +148,7 @@ public class ViewPagamentoPDV extends javax.swing.JDialog {
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("RECEBIDO:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -188,10 +192,11 @@ public class ViewPagamentoPDV extends javax.swing.JDialog {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(51, 153, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "VALOR TOTAL A PAGAR", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 16))); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SHOP CREDI", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 16), new java.awt.Color(0, 0, 0))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("VALOR TOTAL R$:");
 
         jTextFieldValorTotal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -220,15 +225,17 @@ public class ViewPagamentoPDV extends javax.swing.JDialog {
         );
 
         jTextFieldTroco.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jTextFieldTroco.setForeground(new java.awt.Color(255, 0, 0));
+        jTextFieldTroco.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldTroco.setText("0");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("TROCO:");
 
         jButtonConfirma.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonConfirma.setForeground(new java.awt.Color(0, 0, 0));
         jButtonConfirma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_checkmark-24_103184.png"))); // NOI18N
-        jButtonConfirma.setText("Fechar Venda");
+        jButtonConfirma.setText("Finalizar Venda");
         jButtonConfirma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConfirmaActionPerformed(evt);

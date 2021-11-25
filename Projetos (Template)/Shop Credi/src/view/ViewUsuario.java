@@ -63,14 +63,20 @@ public class ViewUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MANUTEÇÃO DE USUÁRIOS");
 
+        jPanel2.setBackground(new java.awt.Color(255, 0, 0));
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CÓDIGO:");
 
         jTextFieldCodigo.setEnabled(false);
 
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOME:");
 
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("LOGIN");
 
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("SENHA:");
 
         jTableUsuario.setModel(new javax.swing.table.DefaultTableModel(

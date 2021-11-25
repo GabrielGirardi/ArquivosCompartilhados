@@ -71,7 +71,7 @@ public class ViewRelatorioVendas extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
         jPanel1.setForeground(new java.awt.Color(255, 153, 51));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));

@@ -6,9 +6,7 @@
 package Principal;
 
 
-import Venda.main3;
 import aplicacao.IHM;
-import aplicacao.Menu;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import view.ViewCliente;
@@ -17,7 +15,6 @@ import view.ViewPDV;
 import view.ViewProduto;
 import view.ViewRelatorioVendas;
 import view.ViewVenda;
-
 
         
 
@@ -57,13 +54,11 @@ public class Main extends javax.swing.JFrame {
         btClientes7 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         btClientes4 = new javax.swing.JButton();
+        btClientes2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btClientes = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        btClientes2 = new javax.swing.JButton();
-        btClientes3 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         btClientes5 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -74,6 +69,7 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Shop Credi");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/bem-vindo-de-volta.png"))); // NOI18N
 
@@ -83,16 +79,17 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icons8-loading-infinity.gif"))); // NOI18N
 
         jToolBar1.setBackground(new java.awt.Color(204, 204, 204));
-        jToolBar1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Menu ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Lucida Grande", 0, 13), new java.awt.Color(102, 102, 102))); // NOI18N
+        jToolBar1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Menu ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(102, 102, 102))); // NOI18N
         jToolBar1.setForeground(new java.awt.Color(102, 102, 102));
         jToolBar1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jToolBar1.setRollover(true);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel6.setText("Financeiro");
+        jLabel6.setText("Venda");
         jToolBar1.add(jLabel6);
 
+        btClientes1.setForeground(new java.awt.Color(0, 0, 0));
         btClientes1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/Shopping cart.png"))); // NOI18N
         btClientes1.setText("PDV");
         btClientes1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -110,6 +107,7 @@ public class Main extends javax.swing.JFrame {
         });
         jToolBar1.add(btClientes1);
 
+        btClientes7.setForeground(new java.awt.Color(0, 0, 0));
         btClientes7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/Dollar.png"))); // NOI18N
         btClientes7.setText("Relatório de Vendas");
         btClientes7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -129,9 +127,10 @@ public class Main extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel5.setText("Saidas e Entradas");
+        jLabel5.setText("Mercadoria");
         jToolBar1.add(jLabel5);
 
+        btClientes4.setForeground(new java.awt.Color(0, 0, 0));
         btClientes4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/Database.png"))); // NOI18N
         btClientes4.setText("Estoque");
         btClientes4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -149,33 +148,7 @@ public class Main extends javax.swing.JFrame {
         });
         jToolBar1.add(btClientes4);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel4.setText("Cadastro");
-        jToolBar1.add(jLabel4);
-
-        btClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/User group.png"))); // NOI18N
-        btClientes.setText("Clientes");
-        btClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btClientes.setFocusable(false);
-        btClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btClientes.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btClientes.setMaximumSize(new java.awt.Dimension(200, 40));
-        btClientes.setMinimumSize(new java.awt.Dimension(200, 40));
-        btClientes.setPreferredSize(new java.awt.Dimension(200, 40));
-        btClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btClientesActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(btClientes);
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel7.setText("Relatório");
-        jToolBar1.add(jLabel7);
-
+        btClientes2.setForeground(new java.awt.Color(0, 0, 0));
         btClientes2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/Clipboard.png"))); // NOI18N
         btClientes2.setText("Pedidos");
         btClientes2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -193,28 +166,30 @@ public class Main extends javax.swing.JFrame {
         });
         jToolBar1.add(btClientes2);
 
-        btClientes3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/Delivery.png"))); // NOI18N
-        btClientes3.setText("Encomendas");
-        btClientes3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btClientes3.setFocusable(false);
-        btClientes3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btClientes3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btClientes3.setMaximumSize(new java.awt.Dimension(200, 40));
-        btClientes3.setMinimumSize(new java.awt.Dimension(200, 40));
-        btClientes3.setPreferredSize(new java.awt.Dimension(200, 40));
-        btClientes3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btClientes3.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel4.setText("Espaço do Cliente");
+        jToolBar1.add(jLabel4);
+
+        btClientes.setForeground(new java.awt.Color(0, 0, 0));
+        btClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/User group.png"))); // NOI18N
+        btClientes.setText("Clientes");
+        btClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btClientes.setFocusable(false);
+        btClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btClientes.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btClientes.setMaximumSize(new java.awt.Dimension(200, 40));
+        btClientes.setMinimumSize(new java.awt.Dimension(200, 40));
+        btClientes.setPreferredSize(new java.awt.Dimension(200, 40));
+        btClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btClientes3ActionPerformed(evt);
+                btClientesActionPerformed(evt);
             }
         });
-        jToolBar1.add(btClientes3);
+        jToolBar1.add(btClientes);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel8.setText("Extras");
-        jToolBar1.add(jLabel8);
-
+        btClientes5.setForeground(new java.awt.Color(0, 0, 0));
         btClientes5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/Red tag.png"))); // NOI18N
         btClientes5.setText("Provador");
         btClientes5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -231,6 +206,11 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(btClientes5);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel8.setText("Extras");
+        jToolBar1.add(jLabel8);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/18x18/Medium rating.png"))); // NOI18N
         jMenu1.setText("App");
@@ -285,17 +265,17 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 403, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(143, 143, 143))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jLabel2)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,9 +286,9 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
+                        .addGap(141, 141, 141)
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
@@ -341,10 +321,6 @@ public class Main extends javax.swing.JFrame {
     private void btClientes2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientes2ActionPerformed
        new CadProd().setVisible(true);
     }//GEN-LAST:event_btClientes2ActionPerformed
-
-    private void btClientes3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientes3ActionPerformed
-        new Menu().setVisible(true);
-    }//GEN-LAST:event_btClientes3ActionPerformed
 
     private void btClientes5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientes5ActionPerformed
          new IHM().setVisible(true);
@@ -402,7 +378,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btClientes;
     private javax.swing.JButton btClientes1;
     private javax.swing.JButton btClientes2;
-    private javax.swing.JButton btClientes3;
     private javax.swing.JButton btClientes4;
     private javax.swing.JButton btClientes5;
     private javax.swing.JButton btClientes7;
@@ -412,7 +387,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

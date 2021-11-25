@@ -114,6 +114,9 @@ public class ViewVenda extends javax.swing.JFrame {
         setTitle("MANUTENÇÃO DE VENDAS");
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CÓDIGO DO CLIETE:");
 
         jTextFieldCodigoCliente.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -122,13 +125,20 @@ public class ViewVenda extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOME DO CLIENTE:");
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nº DA VENDA:");
 
         jTextFieldNumeroVenda.setBackground(new java.awt.Color(204, 255, 204));
         jTextFieldNumeroVenda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jTextFieldNumeroVenda.setForeground(new java.awt.Color(255, 0, 0));
+        jTextFieldNumeroVenda.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldNumeroVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNumeroVendaActionPerformed(evt);
+            }
+        });
 
         jTextFieldCodigoProduto.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -136,10 +146,13 @@ public class ViewVenda extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("CÓDIGO DO PROD.:");
 
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("NOME DO PRODUTO:");
 
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("QUANTIDADE:");
 
         jButtonAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_plus-24_103172_1.png"))); // NOI18N
@@ -200,6 +213,7 @@ public class ViewVenda extends javax.swing.JFrame {
             jTableProdutosVenda.getColumnModel().getColumn(4).setPreferredWidth(20);
         }
 
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("DESCONTO:");
 
         jTextFieldDesconto.setText("0");
@@ -209,6 +223,7 @@ public class ViewVenda extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("VALOR TOTAL:");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_200_CircledMinus_183317.png"))); // NOI18N
@@ -345,11 +360,16 @@ public class ViewVenda extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("CADASTRO", jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("LOCALIZAR:");
 
+        jButtonPesquisar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_search_322497_1.png"))); // NOI18N
         jButtonPesquisar.setText("PESQUISAR");
 
+        jTableVendas.setBackground(new java.awt.Color(51, 255, 0));
         jTableVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -393,6 +413,7 @@ public class ViewVenda extends javax.swing.JFrame {
             }
         });
 
+        jButtonImpVenda.setForeground(new java.awt.Color(0, 0, 0));
         jButtonImpVenda.setText("Imprimir Venda");
         jButtonImpVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -742,6 +763,10 @@ public class ViewVenda extends javax.swing.JFrame {
         };
         t.start();
     }//GEN-LAST:event_jButtonImpVendaActionPerformed
+
+    private void jTextFieldNumeroVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumeroVendaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNumeroVendaActionPerformed
 
     /**
      * Limpa os dados do formulário

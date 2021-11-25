@@ -31,7 +31,7 @@ public class ConexaoMySql {
     private String servidor = "localhost";
     private String nomeDoBanco = "dbwsvendas";
     private String usuario = "root";
-    private String senha = "1001";
+    private String senha = "";
     
     public ConexaoMySql(){}
     

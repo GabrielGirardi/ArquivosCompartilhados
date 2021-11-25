@@ -71,28 +71,39 @@ public class ViewCliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MANUTENÇÃO DE CLIENTES");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("ENDEREÇO"));
+        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ENDEREÇO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("RUA:");
 
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("BAIRRO:");
 
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("CIDADE:");
 
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("UF:");
 
-        jComboBoxUf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SC", "MA", "RJ", "SP", "PR", "DF" }));
+        jComboBoxUf.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBoxUf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SC", "MA", "RJ", "SP", "PR", "DF", "RO", "AC", "AM", "RR", "PA", "AP", "TO", "CE", "SE", "BA", "GO", "MT", "MS", "RS", "ES", "MG" }));
 
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("CEP:");
 
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("TELEFONE:");
 
+        jTextFieldCep.setForeground(new java.awt.Color(255, 255, 255));
         try {
             jTextFieldCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
+        jTextFieldTelefone.setForeground(new java.awt.Color(255, 255, 255));
         try {
             jTextFieldTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
@@ -163,10 +174,14 @@ public class ViewCliente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CÓDIGO:");
 
         jTextFieldCodigo.setEnabled(false);
 
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOME:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -201,6 +216,8 @@ public class ViewCliente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         jTableCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -233,6 +250,7 @@ public class ViewCliente extends javax.swing.JFrame {
             jTableCliente.getColumnModel().getColumn(0).setPreferredWidth(20);
         }
 
+        jButtonNovo.setForeground(new java.awt.Color(0, 0, 0));
         jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_plus-24_103172.png"))); // NOI18N
         jButtonNovo.setText("NOVO");
         jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -241,6 +259,7 @@ public class ViewCliente extends javax.swing.JFrame {
             }
         });
 
+        jButtonCancelar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_cancel-2_309095.png"))); // NOI18N
         jButtonCancelar.setText("CANCELAR");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -249,6 +268,7 @@ public class ViewCliente extends javax.swing.JFrame {
             }
         });
 
+        jButtonAlterar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_new-24_103173.png"))); // NOI18N
         jButtonAlterar.setText("ALTERAR");
         jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -257,6 +277,7 @@ public class ViewCliente extends javax.swing.JFrame {
             }
         });
 
+        jButtonSalvar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_checkmark-24_103184.png"))); // NOI18N
         jButtonSalvar.setText("SALVAR");
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -265,6 +286,7 @@ public class ViewCliente extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_cross-24_103181.png"))); // NOI18N
         jButton1.setText("Excluir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

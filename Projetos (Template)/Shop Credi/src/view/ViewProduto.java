@@ -70,18 +70,26 @@ public class ViewProduto extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MANUTEÇÃO DE PRODUTOS");
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CÓDIGO:");
 
         jTextFieldCodigo.setEnabled(false);
 
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOME:");
 
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("ESTOQUE:");
 
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("VALOR:");
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("PESQUISAR:");
 
+        jButtonPesquisar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_search_322497.png"))); // NOI18N
         jButtonPesquisar.setText("PESQUISAR");
         jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +116,7 @@ public class ViewProduto extends javax.swing.JFrame {
                             .addComponent(jTextFieldEstoque))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                            .addComponent(jTextFieldNome)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10)
