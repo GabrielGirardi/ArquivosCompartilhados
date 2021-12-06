@@ -7,6 +7,7 @@ package Principal;
 
 
 import aplicacao.IHM;
+import calculadora.Calculadora;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import view.ViewCliente;
@@ -59,6 +60,7 @@ public class Main extends javax.swing.JFrame {
         btClientes = new javax.swing.JButton();
         btClientes5 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        btClientes6 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -74,8 +76,10 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/bem-vindo-de-volta.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Desenvolvido por Shop Credi");
 
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icons8-loading-infinity.gif"))); // NOI18N
 
         jToolBar1.setBackground(new java.awt.Color(204, 204, 204));
@@ -212,6 +216,24 @@ public class Main extends javax.swing.JFrame {
         jLabel8.setText("Extras");
         jToolBar1.add(jLabel8);
 
+        btClientes6.setForeground(new java.awt.Color(0, 0, 0));
+        btClientes6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/Calculator.png"))); // NOI18N
+        btClientes6.setText("Calculadora");
+        btClientes6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btClientes6.setFocusable(false);
+        btClientes6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btClientes6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btClientes6.setMaximumSize(new java.awt.Dimension(200, 40));
+        btClientes6.setMinimumSize(new java.awt.Dimension(200, 40));
+        btClientes6.setPreferredSize(new java.awt.Dimension(200, 40));
+        btClientes6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btClientes6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btClientes6ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btClientes6);
+
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/18x18/Medium rating.png"))); // NOI18N
         jMenu1.setText("App");
 
@@ -265,17 +287,16 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 357, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(15, 15, 15))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(143, 143, 143))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(15, 15, 15))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,16 +304,15 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(22, 22, 22))))
+                        .addGap(22, 22, 22))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -339,6 +359,10 @@ public class Main extends javax.swing.JFrame {
         viewRelatorioVendas.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void btClientes6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientes6ActionPerformed
+        new Calculadora().setVisible(true);
+    }//GEN-LAST:event_btClientes6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -380,6 +404,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btClientes2;
     private javax.swing.JButton btClientes4;
     private javax.swing.JButton btClientes5;
+    private javax.swing.JButton btClientes6;
     private javax.swing.JButton btClientes7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -57,7 +57,7 @@ public class ViewLogin extends javax.swing.JFrame {
         setTitle("Shop Credi- LOGIN");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));

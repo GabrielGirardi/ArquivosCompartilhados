@@ -74,7 +74,7 @@ public class ViewPagamentoPDV extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 0, 51));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -98,7 +98,7 @@ public class ViewPagamentoPDV extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 0, 51));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -225,7 +225,7 @@ public class ViewPagamentoPDV extends javax.swing.JDialog {
         );
 
         jTextFieldTroco.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jTextFieldTroco.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldTroco.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldTroco.setText("0");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

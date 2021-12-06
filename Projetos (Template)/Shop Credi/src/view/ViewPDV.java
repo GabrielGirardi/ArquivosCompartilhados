@@ -35,7 +35,7 @@ import util.BLMascaras;
 
 /**
  *
- * @author Wendel
+ * @author gabriel.girardi
  */
 public class ViewPDV extends javax.swing.JFrame {
 
@@ -80,16 +80,17 @@ public class ViewPDV extends javax.swing.JFrame {
 
         panel1 = new java.awt.Panel();
         jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        Data = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         panel2 = new java.awt.Panel();
         panel4 = new java.awt.Panel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabelCaixa = new javax.swing.JLabel();
         jLabelSatus = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        panel5 = new java.awt.Panel();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldBruto = new javax.swing.JTextField();
+        panel5 = new java.awt.Panel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -98,6 +99,7 @@ public class ViewPDV extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabelOperador = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         panel3 = new java.awt.Panel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableProdutos = new javax.swing.JTable();
@@ -115,12 +117,29 @@ public class ViewPDV extends javax.swing.JFrame {
         setTitle("PDV - Shop Credi VENDAS");
         setBackground(new java.awt.Color(153, 255, 153));
 
-        panel1.setBackground(new java.awt.Color(255, 51, 51));
+        panel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("MV Boli", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconfinder_Line_ui_icons_Svg-10_1465826.png"))); // NOI18N
         jLabel8.setText("Desenvolvido por Shop Credi");
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Horário");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        Data.setToolTipText("");
+        Data.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DataActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens_16x16/apple.png"))); // NOI18N
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -128,15 +147,30 @@ public class ViewPDV extends javax.swing.JFrame {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(26, 26, 26)
+                        .addComponent(Data, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)))
+                .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel8)
-                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel3)))
         );
 
         panel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -145,10 +179,6 @@ public class ViewPDV extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CAIXA:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("SITUAÇÃO:");
-
         jLabelCaixa.setBackground(new java.awt.Color(204, 204, 204));
         jLabelCaixa.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabelCaixa.setForeground(new java.awt.Color(255, 0, 0));
@@ -156,52 +186,50 @@ public class ViewPDV extends javax.swing.JFrame {
 
         jLabelSatus.setBackground(new java.awt.Color(204, 204, 204));
         jLabelSatus.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabelSatus.setForeground(new java.awt.Color(255, 0, 0));
+        jLabelSatus.setForeground(new java.awt.Color(0, 0, 0));
         jLabelSatus.setText("status caixa");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/OK.png"))); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("VALOR ATUAL:");
+
+        jTextFieldBruto.setEditable(false);
+        jTextFieldBruto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextFieldBruto.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldBruto.setDisabledTextColor(new java.awt.Color(204, 0, 0));
+        jTextFieldBruto.setEnabled(false);
 
         javax.swing.GroupLayout panel4Layout = new javax.swing.GroupLayout(panel4);
         panel4.setLayout(panel4Layout);
         panel4Layout.setHorizontalGroup(
             panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel4Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelCaixa, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelSatus, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jTextFieldBruto)
             .addGroup(panel4Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
                     .addGroup(panel4Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabelSatus, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)))
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         panel4Layout.setVerticalGroup(
             panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel4Layout.createSequentialGroup()
+                .addComponent(jLabelSatus)
+                .addGap(50, 50, 50)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldBruto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabelCaixa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabelSatus))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(32, 32, 32))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("VALOR BRUTO:");
-
-        jTextFieldBruto.setEditable(false);
-        jTextFieldBruto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jTextFieldBruto.setForeground(new java.awt.Color(255, 0, 0));
-        jTextFieldBruto.setDisabledTextColor(new java.awt.Color(204, 0, 0));
-        jTextFieldBruto.setEnabled(false);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -222,52 +250,52 @@ public class ViewPDV extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setText("F1 - PESQUISAR ITEM");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("MV Boli", 1, 10)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("OPERADOR:");
+        jLabel2.setText("LOGADO COMO:");
 
         jLabelOperador.setBackground(new java.awt.Color(204, 204, 204));
-        jLabelOperador.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabelOperador.setForeground(new java.awt.Color(255, 0, 0));
+        jLabelOperador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelOperador.setForeground(new java.awt.Color(255, 51, 51));
         jLabelOperador.setText("Operador");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/24x24/OK.png"))); // NOI18N
 
         javax.swing.GroupLayout panel5Layout = new javax.swing.GroupLayout(panel5);
         panel5.setLayout(panel5Layout);
         panel5Layout.setHorizontalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel5Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldBruto)
                     .addGroup(panel5Layout.createSequentialGroup()
-                        .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel14))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(panel5Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelOperador, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel5Layout.createSequentialGroup()
+                        .addComponent(jLabelOperador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(14, 14, 14))))
+            .addGroup(panel5Layout.createSequentialGroup()
+                .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14)
+                    .addGroup(panel5Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel5Layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldBruto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(15, 15, 15)
+                .addContainerGap(72, Short.MAX_VALUE)
+                .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel4))
+                .addGap(13, 13, 13)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
@@ -277,10 +305,10 @@ public class ViewPDV extends javax.swing.JFrame {
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
-                .addGap(33, 33, 33)
-                .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabelOperador)))
+                .addGap(44, 44, 44)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelOperador))
         );
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
@@ -339,7 +367,7 @@ public class ViewPDV extends javax.swing.JFrame {
         panel3Layout.setHorizontalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         panel3Layout.setVerticalGroup(
@@ -347,6 +375,7 @@ public class ViewPDV extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
+        jTextFieldCodigoProduto.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldCodigoProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         jTextFieldCodigoProduto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTextFieldCodigoProduto.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -506,6 +535,18 @@ public class ViewPDV extends javax.swing.JFrame {
         viewPesquisarProduto.setVisible(true);
         jTextFieldCodigoProduto.setText(String.valueOf(viewPesquisarProduto.getCodigoProduto()));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void DataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DataActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         java.util.Date data = new java.util.Date();
+        SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy - H:m:s");
+        String dataFormatada = formatar.format(data);
+        System.out.println(dataFormatada);
+        Data.setText(dataFormatada);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * Salva a venda no banco
@@ -746,6 +787,8 @@ public class ViewPDV extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Data;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

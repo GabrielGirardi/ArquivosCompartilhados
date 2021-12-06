@@ -71,7 +71,7 @@ public class ViewCliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MANUTENÇÃO DE CLIENTES");
 
-        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ENDEREÇO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -96,14 +96,14 @@ public class ViewCliente extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("TELEFONE:");
 
-        jTextFieldCep.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldCep.setForeground(new java.awt.Color(0, 0, 0));
         try {
             jTextFieldCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
-        jTextFieldTelefone.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldTelefone.setForeground(new java.awt.Color(0, 0, 0));
         try {
             jTextFieldTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
